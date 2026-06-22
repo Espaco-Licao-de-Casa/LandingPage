@@ -795,6 +795,7 @@ section {
   border: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
+  transition: filter 300ms ease, opacity 300ms ease;
 }
 
 .approved-card-img {
@@ -804,11 +805,16 @@ section {
   border-radius: var(--radius-md);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   display: block;
-  transition: transform 300ms ease;
+  transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
+  opacity: 0.55;
+  filter: blur(1.5px);
 }
 
+.logo-marquee__item--img.in-center .approved-card-img,
 .logo-marquee__item--img:hover .approved-card-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  opacity: 1;
+  filter: blur(0);
 }
 
 /* Selos Destaque */
