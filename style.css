@@ -745,6 +745,46 @@ section {
   to { transform: translateX(-50%); }
 }
 
+.logo-marquee--approved {
+  margin-bottom: var(--space-8);
+}
+
+.logo-marquee--reverse .logo-marquee__track {
+  animation-direction: reverse;
+}
+
+.marquee-group-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-200);
+  margin-bottom: var(--space-4);
+  margin-top: var(--space-8);
+  padding-left: var(--space-4);
+}
+
+.logo-marquee__item--img {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.approved-card-img {
+  height: 380px;
+  width: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.logo-marquee__item--img:hover .approved-card-img {
+  transform: scale(1.03);
+}
+
 /* Selos Destaque */
 .premios__destaques {
   display: grid;
@@ -1184,7 +1224,7 @@ section {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
   gap: var(--space-12);
   padding-bottom: var(--space-16);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1523,10 +1563,6 @@ section {
     grid-column: span 2;
   }
   
-  .footer__col--newsletter {
-    grid-column: span 2;
-  }
-  
   .footer__bottom {
     flex-direction: column;
     text-align: center;
@@ -1539,6 +1575,10 @@ section {
   :root {
     --space-8: 20px;
     --space-12: 32px;
+  }
+  
+  .approved-card-img {
+    height: 280px;
   }
   
   .hero {
