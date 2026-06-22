@@ -185,4 +185,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     APPROVED MARQUEE ACTIVE CENTER EFFECT
+     ========================================================================== */
+  const marquee = document.querySelector('.logo-marquee');
+  const marqueeItems = document.querySelectorAll('.logo-marquee__item--img');
+  
+  if (marquee && marqueeItems.length > 0) {
+    let animationFrameId;
+    let isVisible = false;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          checkCenter();
+        } else {
+          cancelAnimationFrame(animationFrameId);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    function checkCenter() {
+      if (!isVisible) return;
+      
+      const marqueeRect = marquee.getBoundingClientRect();
+      const marqueeCenter = marqueeRect.left + marqueeRect.width / 2;
+      
+      marqueeItems.forEach(item => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.left + itemRect.width / 2;
+        const distance = Math.abs(itemCenter - marqueeCenter);
+        
+        // If the item center is close to the marquee center (width of card is 180px + gap)
+        if (distance < 110) {
+          item.classList.add('in-center');
+        } else {
+          item.classList.remove('in-center');
+        }
+      });
+      
+      animationFrameId = requestAnimationFrame(checkCenter);
+    }
+    
+    observer.observe(marquee);
+  }
+
 });
