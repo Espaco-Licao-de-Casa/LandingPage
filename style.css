@@ -344,6 +344,10 @@ section {
   opacity: 1;
 }
 
+.header__cta-mobile {
+  display: none;
+}
+
 .header__actions {
   display: flex;
   align-items: center;
@@ -804,8 +808,10 @@ section {
 
 .unidades__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-8);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .card--unidade {
@@ -1391,6 +1397,11 @@ section {
   /* Header Mobile Menu */
   .header__toggle {
     display: block;
+    z-index: 1003;
+  }
+  
+  .header__cta {
+    display: none;
   }
   
   .header__nav {
@@ -1405,10 +1416,20 @@ section {
     flex-direction: column;
     box-shadow: -4px 0 20px rgba(3, 53, 58, 0.2);
     transition: right 300ms var(--ease-soft);
+    overflow-y: auto;
+    z-index: 1002;
   }
   
   .header__nav.is-active {
     right: 0;
+  }
+  
+  .header__cta-mobile {
+    display: inline-flex;
+    margin-top: var(--space-8);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
   
   .header__nav-list {
